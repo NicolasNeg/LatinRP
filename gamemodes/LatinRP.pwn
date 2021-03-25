@@ -2474,7 +2474,7 @@ public OnPlayerText(playerid, text[])
             return 0;
         }
     }
-    if(PlayerInfo[playerid][pAcento] >= 1)
+    if(PlayerInfo[playerid][pAcento] != 0)
     {
         new conacento[128];
         new acento[25];
@@ -6406,6 +6406,8 @@ public CrearCuenta(playerid)
     PlayerInfo[playerid][ChangesName] = 3;
     SetPlayerScore(playerid, 1);
     PlayerInfo[playerid][pLogged] = true;
+	TextDrawHideForPlayer(playerid, Spawn0);
+    TextDrawHideForPlayer(playerid, Spawn1);
     if(PlayerInfo[playerid][pGenero] == 0)
     {
         format(aviso,sizeof(aviso),"Cuenta %s creada: - Edad: %d - Genero: Masculino - Cambios de nombre: 3", NombreJugador(playerid), PlayerInfo[playerid][pEdad]);
